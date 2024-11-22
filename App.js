@@ -24,6 +24,7 @@ import Digital from './screens/digi';
 import SeeAllCars from './screens/SeeAllCars';
 
 const Tab = createBottomTabNavigator();
+import Chatbot from './chatbot';
 
 export default function AppNavigator() {
   return (
@@ -50,6 +51,7 @@ export default function AppNavigator() {
         <Tab.Screen name="Seriesi7" component={Seriesi7} options={{ headerShown: false }} />
         <Tab.Screen name="Digital" component={Digital} options={{ headerShown: false }} />
         <Tab.Screen name="SeeAllCars" component={SeeAllCars} options={{ headerShown: false }} />
+        <Tab.Screen name="Chatbot" component={Chatbot} options={{ headerShown: false }} />
       </Tab.Navigator>
     </NavigationContainer>
   );

@@ -422,7 +422,7 @@ const handleSubTabPress = (subTab) => {
   
             <TouchableOpacity onPress={() => navigation.navigate('DangKy')}  style={styles.dropdownItem}><Text>Drive Test</Text></TouchableOpacity >
   
-            <TouchableOpacity onPress={() => navigation.navigate('DangKy')}  style={styles.dropdownItem}><Text>Drive Test</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
   
          
         </Animated.View>
