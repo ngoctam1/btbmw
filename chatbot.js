@@ -20,7 +20,14 @@ const GeminiChat = () => {
     const genAI = new GoogleGenerativeAI.GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-    const prompt = `Trả lời ngắn gọn và đầy đủ ý nghĩa nhất có thể trong giới hạn 400 kí tự. Chỉ trả lời về Lĩnh vực: hãng xe BMW. ${userMessage.text} nếu câu hỏi không phải lĩnh vực Xe BMW vui lòng trả lời "tôi không thể trả lời !"`;
+    const prompt = `
+Bạn là chuyên gia về xe và dịch vụ BMW. Trả lời đầy đủ ý nghĩa và ngắn gọn nhất có thể, tối đa 400 ký tự.
+- Nếu câu hỏi liên quan đến mẫu xe, giá, địa điểm mua, hoặc dịch vụ BMW, hãy trả lời chính xác.
+- Nếu không rõ câu hỏi thuộc lĩnh vực, hãy hỏi lại.
+- Nếu chắc chắn không liên quan, trả lời: "Tôi không thể trả lời!"
+Câu hỏi: ${userMessage.text}`;
+
+
 
     const result = await model.generateContent(prompt, { maxTokens: 700 });
 
