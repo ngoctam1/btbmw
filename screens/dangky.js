@@ -5,8 +5,11 @@ import { Picker } from '@react-native-picker/picker';
 import { Switch } from 'react-native';
 import axios from 'axios';
 
+<<<<<<< HEAD
 import { Platform } from 'react-native';
 
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
 
 export default function DangKy({ navigation }) {
@@ -25,8 +28,11 @@ export default function DangKy({ navigation }) {
   const [isAgreed, setIsAgreed] = useState(false);
   const [selectedCarModel, setSelectedCarModel] = useState('');
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   // Handle form submission
   const handleSubmit = async () => {
     if (!isAgreed) {
@@ -83,6 +89,7 @@ export default function DangKy({ navigation }) {
         <View style={styles.form}>
         <Text style={styles.label}>Title *</Text>
 
+<<<<<<< HEAD
 
 
 <View style={styles.pickerContainer}>
@@ -90,12 +97,21 @@ export default function DangKy({ navigation }) {
   selectedValue={selectedGender}
   onValueChange={(itemValue) => setSelectedGender(itemValue)}
   style={[styles.picker, { paddingVertical: 10 }]}  // Corrected style syntax
+=======
+<Picker
+  selectedValue={selectedGender}
+  onValueChange={(itemValue) => setSelectedGender(itemValue)}
+  style={[styles.input, { paddingVertical: 10 }]}  // Corrected style syntax
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 >
   <Picker.Item label="Please select ..." value="" />
   <Picker.Item label="Mr." value="Mr" />
   <Picker.Item label="Ms." value="Ms" />
 </Picker>
+<<<<<<< HEAD
 </View>
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
 
           <Text style={styles.label}>First Name *</Text>
@@ -111,11 +127,19 @@ export default function DangKy({ navigation }) {
           <TextInput style={styles.input} placeholder="Email" keyboardType="email-address"  onChangeText={setEmail} />
 
           <Text style={styles.label}>City/ Province *</Text>
+<<<<<<< HEAD
           <View style={styles.pickerContainer}>
           <Picker
             selectedValue={selectedCity}
             onValueChange={(itemValue) => setSelectedCity(itemValue)}
             style={styles.picker}
+=======
+
+          <Picker
+            selectedValue={selectedCity}
+            onValueChange={(itemValue) => setSelectedCity(itemValue)}
+            style={styles.input}
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
           >
             <Picker.Item label="Please select ..." value="" />
             <Picker.Item label="Hà Nội" value="Hanoi" />
@@ -183,17 +207,28 @@ export default function DangKy({ navigation }) {
             <Picker.Item label="Ca Mau" value="CM" />
             <Picker.Item label="Kon Tum" value="KT" />
           </Picker>
+<<<<<<< HEAD
           </View>
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
           <Text style={styles.label}>District</Text>
           <TextInput style={styles.input} placeholder="District" />
 
           <Text style={styles.label}>Model of the car you would like to test drive *</Text>
+<<<<<<< HEAD
           <View style={styles.pickerContainer}>
           <Picker
             selectedValue={selectedCarModel}
             onValueChange={(itemValue) => setSelectedCarModel(itemValue)}
             style={styles.picker}
+=======
+
+          <Picker
+            selectedValue={selectedCarModel}
+            onValueChange={(itemValue) => setSelectedCarModel(itemValue)}
+            style={styles.input}
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
           >
             <Picker.Item label="Please select ..." value="" />
             <Picker.Item label="BMW 3 Series Sedan" value="series3" />
@@ -214,7 +249,10 @@ export default function DangKy({ navigation }) {
             <Picker.Item label="BMW i7" value="seriesi7" />
             
           </Picker>
+<<<<<<< HEAD
           </View>
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
            <Text style={styles.label}>Additional Requirements</Text>
 
@@ -332,6 +370,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+<<<<<<< HEAD
   picker: {
     height: 50,  // Ensures proper height
     width: '100%',  // Ensures it takes full container width
@@ -341,4 +380,6 @@ const styles = StyleSheet.create({
     borderColor: 'black', // Optional: Light gray border
   },
   
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 });

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useRef, useState ,useEffect} from 'react';
+=======
+import React, { useRef, useState } from 'react';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 import {
   View,
   Text,
@@ -10,6 +14,7 @@ import {
   TouchableOpacity,
   Animated,
   StatusBar,
+<<<<<<< HEAD
   Linking,ActivityIndicator,Button
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -17,6 +22,12 @@ import { FontAwesome } from '@expo/vector-icons';
 import { db } from "../friebaseConf";
 import { doc, getDoc } from "firebase/firestore";
 import { Picker } from '@react-native-picker/picker';
+=======
+  Linking
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
 
 const Home = ({ navigation }) => {
@@ -25,6 +36,7 @@ const Home = ({ navigation }) => {
   const scrollY = useRef(new Animated.Value(0)).current;
   const [isMenuOpen, setMenuOpen] = useState(false);
   const rotateAnim = useRef(new Animated.Value(0)).current;
+<<<<<<< HEAD
   const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
   const [isOpen, setIsOpen] = useState(false);
   const animatedHeight = useRef(new Animated.Value(0)).current;
@@ -77,6 +89,17 @@ const Home = ({ navigation }) => {
         );
     }
 
+=======
+
+  const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
+
+    
+
+
+
+    const [isOpen, setIsOpen] = useState(false);
+  const animatedHeight = useRef(new Animated.Value(0)).current;
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
   const handleOptionPress = () => {
     setModalVisible(true);
@@ -221,6 +244,7 @@ const Home = ({ navigation }) => {
 
 
 
+<<<<<<< HEAD
         <View style={styles.container1}>
             <Text style={styles.title}>Curent Car Details ({defaultCarName}):</Text>
             {defaultData ? (
@@ -322,6 +346,8 @@ const Home = ({ navigation }) => {
 
 
 
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
         
         <View style={styles.mainTextCNT}>
             <View style={styles.mainLeftCTN}>
@@ -432,7 +458,11 @@ const Home = ({ navigation }) => {
         <Animated.View style={[styles.dropdown, { height: animatedHeight }]}>
           <TouchableOpacity onPress={() => navigation.navigate('DangKy')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
 
+<<<<<<< HEAD
           <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
+=======
+           <TouchableOpacity onPress={() => navigation.navigate('SeeAllCars')}  style={styles.dropdownItem}><Text>View all cars</Text></TouchableOpacity >
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   
            <TouchableOpacity onPress={() => navigation.navigate('Home')}  style={styles.dropdownItem}><Text>Home</Text></TouchableOpacity >
          
@@ -441,8 +471,11 @@ const Home = ({ navigation }) => {
     </View>
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
       {/* 4 img */}
 
       <View style={styles.mainTextCNT}>
@@ -721,8 +754,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25, // Shadow transparency
     shadowRadius: 3.84, // Shadow blur radius
   },
+<<<<<<< HEAD
 
   
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   dropdownItem: {
     paddingVertical:10,
     width:"100%",
@@ -1065,6 +1101,7 @@ value: {
 InVisisbleSpace:{
     width:"100%",
     marginVertical:40,
+<<<<<<< HEAD
 },
 container1: {
   marginVertical:20,
@@ -1132,6 +1169,9 @@ column: {
 
 
 
+=======
+}
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 });
 
 export default Home;

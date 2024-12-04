@@ -415,11 +415,22 @@ const handleSubTabPress = (subTab) => {
       {isOpen && (
         <Animated.View style={[styles.dropdown, { height: animatedHeight }]}>
           <TouchableOpacity onPress={() => navigation.navigate('DangKy')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
+<<<<<<< HEAD
+=======
+
+           <TouchableOpacity onPress={() => navigation.navigate('SeeAllCars')}  style={styles.dropdownItem}><Text>View all cars</Text></TouchableOpacity >
+ 
+            <TouchableOpacity onPress={() => navigation.navigate('showInfor')}  style={styles.dropdownItem}><Text>Drive Test</Text></TouchableOpacity >
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   
             <TouchableOpacity onPress={() => navigation.navigate('DangKy')}  style={styles.dropdownItem}><Text>Drive Test</Text></TouchableOpacity >
   
             <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
   
+<<<<<<< HEAD
+=======
+         
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
         </Animated.View>
       )}
     </View>
@@ -909,8 +920,12 @@ imageContainer1:{
 },
 imgs:{
   flex:1,
+<<<<<<< HEAD
   width:"100%",
   borderRadius:30,
+=======
+  width:"100%"
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 },
 
 verticalBarCtn:{

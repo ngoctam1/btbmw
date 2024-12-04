@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useRef, useState ,useEffect} from 'react';
+=======
+import React, { useRef, useState } from 'react';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 import {
   View,
   Text,
@@ -10,6 +14,7 @@ import {
   TouchableOpacity,
   Animated,
   StatusBar,
+<<<<<<< HEAD
   Linking,ActivityIndicator,Button
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -21,10 +26,21 @@ import { Picker } from '@react-native-picker/picker';
 
 const series3 = ({ navigation }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+=======
+  Linking
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+
+
+const series3 = ({ navigation }) => {
+   const [isDarkTheme, setIsDarkTheme] = useState(false);
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   const [modalVisible, setModalVisible] = useState(false);
   const scrollY = useRef(new Animated.Value(0)).current;
   const [isMenuOpen, setMenuOpen] = useState(false);
   const rotateAnim = useRef(new Animated.Value(0)).current;
+<<<<<<< HEAD
   const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
   const [isOpen, setIsOpen] = useState(false);
   const animatedHeight = useRef(new Animated.Value(0)).current;
@@ -75,6 +91,17 @@ const series3 = ({ navigation }) => {
       );
   }
 
+=======
+
+  const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
+
+    
+
+
+
+    const [isOpen, setIsOpen] = useState(false);
+  const animatedHeight = useRef(new Animated.Value(0)).current;
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
   const handleOptionPress = () => {
     setModalVisible(true);
@@ -227,6 +254,7 @@ const series3 = ({ navigation }) => {
             </View>
         </View>
         </View>
+<<<<<<< HEAD
 
 
 
@@ -234,15 +262,23 @@ const series3 = ({ navigation }) => {
 
 
 
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
         </View>
         
 
             <View style={styles.dropdownCtn}>
       {isOpen && (
         <Animated.View style={[styles.dropdown, { height: animatedHeight }]}>
+<<<<<<< HEAD
           <TouchableOpacity onPress={() => navigation.navigate('register')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
 
           <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
+=======
+          <TouchableOpacity onPress={() => navigation.navigate('DangKy')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
+
+           <TouchableOpacity onPress={() => navigation.navigate('SeeAllCars')}  style={styles.dropdownItem}><Text>View all cars</Text></TouchableOpacity >
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   
            <TouchableOpacity onPress={() => navigation.navigate('Home')}  style={styles.dropdownItem}><Text>Home</Text></TouchableOpacity >
          
@@ -253,6 +289,7 @@ const series3 = ({ navigation }) => {
 
 
 
+<<<<<<< HEAD
     <View style={styles.container1}>
             <Text style={styles.title}>Curent Car Details ({defaultCarName}):</Text>
             {defaultData ? (
@@ -345,6 +382,8 @@ const series3 = ({ navigation }) => {
 
 
 
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
         <View style={styles.mainTextCNT}>
             <View style={styles.mainLeftCTN}>
                 <Text style={styles.bulletText}>Expressive design, sporty handling and plenty of space for everyday use: the new BMW 4 Series Gran Coupé inspires all along the line. With its high level of ride comfort and generous amount of space featuring five full-size seats and a large luggage compartment, this elegant five-door Gran Coupé is the perfect companion for every occasion.</Text>
@@ -1030,6 +1069,7 @@ learnMore: {
 
 
 
+<<<<<<< HEAD
 container1: {
   marginVertical:20,
   flex: 1,
@@ -1093,6 +1133,8 @@ column: {
 
 
 
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 });
 
 export default series3;

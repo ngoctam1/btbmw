@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useRef, useState ,useEffect} from 'react';
+=======
+import React, { useRef, useState } from 'react';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 import {
   View,
   Text,
@@ -10,6 +14,7 @@ import {
   TouchableOpacity,
   Animated,
   StatusBar,
+<<<<<<< HEAD
   Linking,ActivityIndicator,Button
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -23,12 +28,22 @@ import { Picker } from '@react-native-picker/picker';
 
 
 const series5 = ({ navigation }) => {
+=======
+  Linking
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+
+
+const home = ({ navigation }) => {
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const scrollY = useRef(new Animated.Value(0)).current;
   const [isMenuOpen, setMenuOpen] = useState(false);
   const rotateAnim = useRef(new Animated.Value(0)).current;
   const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
+<<<<<<< HEAD
   const [isOpen, setIsOpen] = useState(false);
   const animatedHeight = useRef(new Animated.Value(0)).current;
   const defaultCarName = "Series5"; // Default car name
@@ -79,6 +94,12 @@ if (loading) {
 }
 
 
+=======
+
+
+  const [isOpen, setIsOpen] = useState(false);
+  const animatedHeight = useRef(new Animated.Value(0)).current;
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
     const toggleDropdown = () => {
     if (isOpen) {
@@ -224,6 +245,7 @@ if (loading) {
         </View>
         </View>
         </View>
+<<<<<<< HEAD
 
 
         <View style={styles.container1}>
@@ -317,6 +339,11 @@ if (loading) {
 
       
 
+=======
+        
+
+
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
         <View style={styles.mainTextCNT}>
             <View style={styles.mainLeftCTN}>
@@ -342,8 +369,13 @@ if (loading) {
         <Animated.View style={[styles.dropdown, { height: animatedHeight }]}>
           <TouchableOpacity onPress={() => navigation.navigate('DangKy')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
 
+<<<<<<< HEAD
           <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
           
+=======
+           <TouchableOpacity onPress={() => navigation.navigate('SeeAllCars')}  style={styles.dropdownItem}><Text>View all cars</Text></TouchableOpacity >
+  
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
            <TouchableOpacity onPress={() => navigation.navigate('Home')}  style={styles.dropdownItem}><Text>Home</Text></TouchableOpacity >
          
         </Animated.View>
@@ -351,9 +383,12 @@ if (loading) {
     </View>
 
 
+<<<<<<< HEAD
     
 
 
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
 
 
@@ -1123,6 +1158,7 @@ learnMore: {
 },
 
 
+<<<<<<< HEAD
 container1: {
   marginVertical:20,
   flex: 1,
@@ -1188,3 +1224,9 @@ column: {
 });
 
 export default series5;
+=======
+
+});
+
+export default home;
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e

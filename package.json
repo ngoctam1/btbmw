@@ -1,6 +1,10 @@
 {
+<<<<<<< HEAD
   "license": "0BSD",
   "main": "index.js",
+=======
+  "main": "expo/AppEntry.js",
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -8,6 +12,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@expo/metro-runtime": "~4.0.0",
     "@expo/vector-icons": "^14.0.2",
     "@google/generative-ai": "*",
@@ -26,9 +31,29 @@
     "react-native-screens": "~4.1.0",
     "react-native-svg": "15.8.0",
     "react-native-web": "~0.19.13"
+=======
+    "expo": "~51.0.28",
+    "expo-status-bar": "~1.12.1",
+    "react": "18.2.0",
+    "react-native": "0.74.5",
+    "axios": "*",
+    "react-native-svg": "15.2.0",
+    "@expo/vector-icons": "^14.0.3",
+    "react-native-screens": "3.31.1",
+    "@react-navigation/native": "*",
+    "@react-native-picker/picker": "2.7.5",
+    "react-native-gesture-handler": "~2.16.1",
+    "@react-navigation/bottom-tabs": "*",
+    "react-native-safe-area-context": "4.10.5",
+    "@google/generative-ai": "*"
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
   },
   "private": true
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e

@@ -23,6 +23,7 @@ const Home = ({ navigation }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const rotateAnim = useRef(new Animated.Value(0)).current;
   const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
+<<<<<<< HEAD
   const [isOpen, setIsOpen] = useState(false);
   const animatedHeight = useRef(new Animated.Value(0)).current;
   const defaultCarName = "Seriesi7"; // Default car name
@@ -31,6 +32,12 @@ const Home = ({ navigation }) => {
   const [selectedData, setSelectedData] = useState(null); // Data for the selected car
   const [loading, setLoading] = useState(true);
   const [modalVisible1, setModalVisible1] = useState(false); // Modal visibility
+=======
+
+
+  const [isOpen, setIsOpen] = useState(false);
+  const animatedHeight = useRef(new Animated.Value(0)).current;
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
     const toggleDropdown = () => {
     if (isOpen) {
@@ -244,7 +251,11 @@ const Home = ({ navigation }) => {
         <Animated.View style={[styles.dropdown, { height: animatedHeight }]}>
           <TouchableOpacity onPress={() => navigation.navigate('DangKy')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
 
+<<<<<<< HEAD
           <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
+=======
+           <TouchableOpacity onPress={() => navigation.navigate('SeeAllCars')}  style={styles.dropdownItem}><Text>View all cars</Text></TouchableOpacity >
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   
            <TouchableOpacity onPress={() => navigation.navigate('Home')}  style={styles.dropdownItem}><Text>Home</Text></TouchableOpacity >
          

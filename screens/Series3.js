@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useRef, useState ,useEffect} from 'react';
+=======
+import React, { useRef, useState } from 'react';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 import {
   View,
   Text,
@@ -10,6 +14,7 @@ import {
   TouchableOpacity,
   Animated,
   StatusBar,
+<<<<<<< HEAD
   Linking,ActivityIndicator,Button
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -17,6 +22,12 @@ import { FontAwesome } from '@expo/vector-icons';
 import { db } from "../friebaseConf";
 import { doc, getDoc } from "firebase/firestore";
 import { Picker } from '@react-native-picker/picker';
+=======
+  Linking
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
 
 const home = ({ navigation  }) => {
@@ -24,6 +35,7 @@ const home = ({ navigation  }) => {
   
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+<<<<<<< HEAD
   const scrollY = useRef(new Animated.Value(0)).current;
   const [isMenuOpen, setMenuOpen] = useState(false);
   const rotateAnim = useRef(new Animated.Value(0)).current;
@@ -83,6 +95,20 @@ const home = ({ navigation  }) => {
 
 
 
+=======
+
+  const scrollY = useRef(new Animated.Value(0)).current;
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  
+  const rotateAnim = useRef(new Animated.Value(0)).current;
+  const [isOpen, setIsOpen] = useState(false);
+
+
+
+  const animatedHeight = useRef(new Animated.Value(0)).current;
+
+  const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
   const handleOptionPress = () => {
     setModalVisible(true);
@@ -172,6 +198,7 @@ const hanldeLogoPress = ()=>{
 
         <View style={styles.optionsContainer}>
 
+<<<<<<< HEAD
           <View style={styles.verticalSeparator} />
 
           <TouchableOpacity onPress={handleOptionPress}>
@@ -181,12 +208,40 @@ const hanldeLogoPress = ()=>{
             />
             <Text style={isDarkTheme ? styles.darkText2 : styles.lightText2}>
               Menu
+=======
+
+          <View style={styles.verticalSeparator} />
+
+          <TouchableOpacity onPress={() => alert('Call')}>
+            <Ionicons
+              style={styles.lightText2}
+              name="call" size={24} color="black"
+            />
+            <Text style={styles.lightText2}>
+              Call
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
             </Text>
           </TouchableOpacity>
         </View>
       </Animated.View>
 
+<<<<<<< HEAD
 
+=======
+      <View style={styles.separator} />
+
+              <View style={styles.dropdownCtn}>
+              {isOpen && (
+                <Animated.View style={[styles.dropdown, { height: animatedHeight }]}>
+                  <TouchableOpacity onPress={() => navigation.navigate('DangKy')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
+
+                  <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}  style={styles.dropdownItem}><Text>Home</Text></TouchableOpacity >
+        
+                
+                </Animated.View>
+              )}
+            </View>
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
       <Animated.ScrollView
         contentContainerStyle={styles.content}
@@ -242,6 +297,7 @@ const hanldeLogoPress = ()=>{
 
 
 
+<<<<<<< HEAD
 
             <View style={styles.dropdownCtn}>
       {isOpen && (
@@ -349,6 +405,8 @@ const hanldeLogoPress = ()=>{
 
 
 
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
         <View style={styles.mainTextCNT}>
             <View style={styles.mainLeftCTN}>
             <Text style={styles.heading}>
@@ -938,6 +996,7 @@ socialIconsCTN:{
   padding:20,
 },
 
+<<<<<<< HEAD
 container1: {
   marginVertical:20,
   flex: 1,
@@ -1000,6 +1059,8 @@ column: {
 
 
 
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
 
 });

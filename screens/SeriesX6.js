@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useRef, useState ,useEffect} from 'react';
+=======
+import React, { useRef, useState } from 'react';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 import {
   View,
   Text,
@@ -10,6 +14,7 @@ import {
   TouchableOpacity,
   Animated,
   StatusBar,
+<<<<<<< HEAD
   Linking,ActivityIndicator,Button
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -20,11 +25,21 @@ import { doc, getDoc } from "firebase/firestore";
 
 const Home = ({ navigation }) => {
 
+=======
+  Linking
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+
+
+const Home = ({ navigation }) => {
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const scrollY = useRef(new Animated.Value(0)).current;
   const [isMenuOpen, setMenuOpen] = useState(false);
   const rotateAnim = useRef(new Animated.Value(0)).current;
+<<<<<<< HEAD
   const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
   const [isOpen, setIsOpen] = useState(false);
   const animatedHeight = useRef(new Animated.Value(0)).current;
@@ -79,6 +94,17 @@ const Home = ({ navigation }) => {
 
 
 
+=======
+
+  const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
+
+    
+
+
+
+    const [isOpen, setIsOpen] = useState(false);
+  const animatedHeight = useRef(new Animated.Value(0)).current;
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 
   const handleOptionPress = () => {
     setModalVisible(true);
@@ -290,7 +316,11 @@ const Home = ({ navigation }) => {
         <Animated.View style={[styles.dropdown, { height: animatedHeight }]}>
           <TouchableOpacity onPress={() => navigation.navigate('DangKy')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
 
+<<<<<<< HEAD
           <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
+=======
+           <TouchableOpacity onPress={() => navigation.navigate('SeeAllCars')}  style={styles.dropdownItem}><Text>View all cars</Text></TouchableOpacity >
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
   
            <TouchableOpacity onPress={() => navigation.navigate('Home')}  style={styles.dropdownItem}><Text>Home</Text></TouchableOpacity >
          
@@ -298,6 +328,7 @@ const Home = ({ navigation }) => {
       )}
     </View>
 
+<<<<<<< HEAD
 
     
 
@@ -404,6 +435,8 @@ const Home = ({ navigation }) => {
 
 
 
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
         <View style={styles.mainTextCNT}>
         <View style={styles.mainLeftCTN}>
           <Image
@@ -1162,6 +1195,7 @@ InVisisbleSpace:{
   menuItem: {
     paddingVertical: 5,
     fontSize: 14,
+<<<<<<< HEAD
   },
   
 
@@ -1232,6 +1266,9 @@ column: {
 
 
 
+=======
+  }
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
 });
 
 export default Home;
