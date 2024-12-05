@@ -22,6 +22,7 @@ import SeriesiX3 from './screens/SeriesiX3';
 import Seriesi4 from './screens/Seriesi4';
 import Seriesi7 from './screens/Seriesi7';
 import Digital from './screens/digi';
+import fv from './screens/fv';
 
 
 
@@ -59,6 +60,7 @@ export default function AppNavigator() {
         <Tab.Screen name="Seriesi7" component={Seriesi7} options={{ headerShown: false }} />
         <Tab.Screen name="Digital" component={Digital} options={{ headerShown: false }} />
         <Tab.Screen name="Chatbot" component={Chatbot} options={{ headerShown: false }} />
+        <Tab.Screen name="fv" component={fv} options={{ headerShown: false }} />
 
       </Tab.Navigator>
     </NavigationContainer>

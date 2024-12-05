@@ -16,6 +16,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { db } from "../friebaseConf";
 import { doc, getDoc } from "firebase/firestore";
+import { Picker } from '@react-native-picker/picker';
 
 
 const Home = ({ navigation }) => {
@@ -222,29 +223,6 @@ const Home = ({ navigation }) => {
 
 
 
-
-              {isMenuVisible && (
-        <Animated.View
-          style={[
-            styles.dropdown,
-            {
-              opacity: animationValue,
-              transform: [
-                {
-                  translateY: animationValue.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [-10, 0], // Adjust the dropdown starting position
-                  }),
-                },
-              ],
-            },
-          ]}
-        >
-          <Text style={styles.menuItem}>Option 1</Text>
-          <Text style={styles.menuItem}>Option 2</Text>
-          <Text style={styles.menuItem}>Option 3</Text>
-        </Animated.View>
-      )}
 
 
 

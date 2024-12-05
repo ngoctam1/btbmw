@@ -3,6 +3,11 @@ import {FlatList, Animated,View, Text, Switch, StyleSheet, Image, ScrollView, Mo
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
+import * as FileSystem from 'expo-file-system';
+
+import { Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 const images = [
@@ -33,27 +38,40 @@ const HomeScreen = () => {
   const [subTabs, setSubTabs] = useState(['ALL BMW M']);
   const [carData, setCarData] = useState([]);
   const [filteredCarData, setFilteredCarData] = useState([]);
-
   const scrollY = useRef(new Animated.Value(0)).current;
-  
   const rotateAnim = useRef(new Animated.Value(0)).current;
   const [isMenuOpen, setMenuOpen] = useState(false);
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideAnim = useRef(new Animated.Value(0)).current;    // For horizontal sliding
   const textAnim = useRef(new Animated.Value(0)).current;     // For vertical sliding
   const scaleAnim = useRef(new Animated.Value(1)).current;    // For scaling effect
   const fadeAnim = useRef(new Animated.Value(1)).current;     // For fade effect
   const { width, height } = Dimensions.get("window");
-
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const animatedHeight = useRef(new Animated.Value(0)).current;
-
-  console.log(width);
-
   const imageHeight = width >= 720 ? 500 : 250; 
-
   const navigation = useNavigation();
+
+
+  const [favoriteCars, setFavoriteCars] = useState([]);
+  const FAVORITE_KEY = 'favorite_items';
+
+
+
+  if (Platform.OS === 'android') {
+    console.log('Running on Android');
+    // Android-specific logic (e.g., file paths, permissions)
+  } else if (Platform.OS === 'ios') {
+    console.log('Running on iOS');
+    // iOS-specific logic (e.g., file paths, permissions)
+  }
+
+
+  const FAVORITE_FILE = FileSystem.documentDirectory + 'favorites.json';
+
+  // Use platform-specific code if necessary
+
+
 
 {/* slider  scrip*/} 
 
@@ -176,23 +194,27 @@ const HomeScreen = () => {
     };
 
 
-  const handleMainTabPress = (tab) => {
-    setSelectedTab(tab);
-    switch (tab) {
-      case 'BMW':
-        setSubTabs(['3', '4', '5', '7', '8', 'X', 'Z']);
-        break;
-      case 'BMW M':
-        setSubTabs(['ALL BMW M']);
-        break;
-      case 'BMW i':
-        setSubTabs(['ALL BMW i']);
-        break;
-      default:
-        setSubTabs([]);
-        break;
-    }
-  };
+    const handleMainTabPress = (tab) => {
+      setSelectedTab(tab);
+      switch (tab) {
+        case 'BMW':
+          setSubTabs(['3', '4', '5', '7', '8', 'X', 'Z']);
+          fetchCarData('BMW');
+          break;
+        case 'BMW M':
+          setSubTabs(['ALL BMW M']);
+          fetchCarData1('BMW M');
+          break;
+        case 'BMW i':
+          setSubTabs(['ALL BMW i']);
+          fetchCarData2('BMW i');
+          break;
+        default:
+          setSubTabs([]);
+          break;
+      }
+    };
+    
 
   const fetchCarData = async (series = 'BMW') => {
   try {
@@ -254,6 +276,50 @@ const handleSubTabPress = (subTab) => {
   fetchCarData1(subTab);
   fetchCarData2(subTab);
 };
+
+  // Function to toggle favorite status of a car
+  const toggleFavorite = async (car) => {
+    try {
+      const storedCars = await AsyncStorage.getItem('favoriteCars');
+      let favoriteCarsArray = storedCars ? JSON.parse(storedCars) : [];
+
+      // Check if the car is already in the favorites list
+      if (favoriteCarsArray.some(favCar => favCar.id === car.id)) {
+        // Remove car from favorites
+        favoriteCarsArray = favoriteCarsArray.filter(favCar => favCar.id !== car.id);
+      } else {
+        // Add car to favorites
+        favoriteCarsArray.push(car);
+      }
+
+      // Save the updated list back to AsyncStorage
+      await AsyncStorage.setItem('favoriteCars', JSON.stringify(favoriteCarsArray));
+
+      // Update the state to reflect the changes
+      setFavoriteCars(favoriteCarsArray);
+    } catch (error) {
+      console.error('Failed to toggle favorite status:', error);
+    }
+  };
+
+  // Function to load favorite cars from AsyncStorage
+  const loadFavoriteCars = async () => {
+    try {
+      const storedCars = await AsyncStorage.getItem('favoriteCars');
+      if (storedCars !== null) {
+        setFavoriteCars(JSON.parse(storedCars));
+      }
+    } catch (error) {
+      console.error('Failed to load favorite cars:', error);
+    }
+  };
+
+useEffect(() => {
+  fetchCarData();
+  loadFavoriteCars(); // Load favorites on component mount
+}, []);
+
+
 
 
 // Duplicate the first image at the end of the array for smooth looping
@@ -388,26 +454,36 @@ const handleSubTabPress = (subTab) => {
         </View>
         {filteredCarData.length > 0 && (
             <ScrollView 
-            horizontal 
-            showsHorizontalScrollIndicator={false} // Optional: Hides the scroll indicator
-            contentContainerStyle={styles.horizontalScrollContainer} // Optional: Additional styles
-          >
-          <View style={styles.carList}>
-            {filteredCarData.map(car => (
-              <View key={car.id} style={styles.carItem}>
-              <TouchableOpacity onPress={() => navigation.navigate(car.id)}
-                style={styles.carCard}
-                >
-                <Image source={{ uri: car.imgLink }} style={styles.carImage} />
-                <Text style={styles.carName}>{car.name}</Text>
-                <Text style={styles.carPrice}>{car.price}</Text>
-                <Text style={styles.carGasType}>Gas Type: {car.gasType}</Text>
-                </TouchableOpacity>
+              horizontal 
+              showsHorizontalScrollIndicator={false} // Optional: Hides the scroll indicator
+              contentContainerStyle={styles.horizontalScrollContainer} // Optional: Additional styles
+            >
+              <View style={styles.carList}>
+                {filteredCarData.map(car => {
+                  const isFavorite = favoriteCars.some((favCar) => favCar.id === car.id);
+                  return (
+                    <View key={car.id} style={styles.carItem}>
+                      <TouchableOpacity 
+                        onPress={() => navigation.navigate(car.id)} 
+                        style={styles.carCard}
+                      >
+                        <Image source={{ uri: car.imgLink }} style={styles.carImage} />
+                        <Text style={styles.carName}>{car.name}</Text>
+                        <Text style={styles.carPrice}>{car.price}</Text>
+                        <Text style={styles.carGasType}>Gas Type: {car.gasType}</Text>
+                      </TouchableOpacity>
+                      {/* Heart Icon */}
+                      <TouchableOpacity style={{position: "absolute", top:20,right:45}}  onPress={() => toggleFavorite(car)}>
+                       
+                      <Icon name="check" size={24} color={isFavorite ? 'green' : 'gray'} />
+                      </TouchableOpacity>
+                    </View>
+                  );
+                })}
               </View>
-            ))}
-          </View>
-          </ScrollView>
-        )}
+            </ScrollView>
+          )}
+
 
 
 
@@ -420,6 +496,7 @@ const handleSubTabPress = (subTab) => {
   
             <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
   
+            <TouchableOpacity onPress={() => navigation.navigate('fv')}  style={styles.dropdownItem}><Text>fv</Text></TouchableOpacity >
         </Animated.View>
       )}
     </View>
@@ -947,6 +1024,11 @@ carItem:{
   paddingHorizontal:20,
 
   margin:20,
+},
+heartIcon: {
+  position: 'absolute',
+  top: 10,
+  right: 10,
 },
 });
 
