@@ -3,11 +3,14 @@ import {FlatList, Animated,View, Text, Switch, StyleSheet, Image, ScrollView, Mo
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
+<<<<<<< HEAD
 import * as FileSystem from 'expo-file-system';
 
 import { Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/FontAwesome';
+=======
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
 
 const images = [
@@ -38,15 +41,25 @@ const HomeScreen = () => {
   const [subTabs, setSubTabs] = useState(['ALL BMW M']);
   const [carData, setCarData] = useState([]);
   const [filteredCarData, setFilteredCarData] = useState([]);
+<<<<<<< HEAD
   const scrollY = useRef(new Animated.Value(0)).current;
   const rotateAnim = useRef(new Animated.Value(0)).current;
   const [isMenuOpen, setMenuOpen] = useState(false);
+=======
+
+  const scrollY = useRef(new Animated.Value(0)).current;
+  
+  const rotateAnim = useRef(new Animated.Value(0)).current;
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideAnim = useRef(new Animated.Value(0)).current;    // For horizontal sliding
   const textAnim = useRef(new Animated.Value(0)).current;     // For vertical sliding
   const scaleAnim = useRef(new Animated.Value(1)).current;    // For scaling effect
   const fadeAnim = useRef(new Animated.Value(1)).current;     // For fade effect
   const { width, height } = Dimensions.get("window");
+<<<<<<< HEAD
   const [isOpen, setIsOpen] = useState(false);
   const animatedHeight = useRef(new Animated.Value(0)).current;
   const imageHeight = width >= 720 ? 500 : 250; 
@@ -73,6 +86,18 @@ const HomeScreen = () => {
 
 
 
+=======
+
+    const [isOpen, setIsOpen] = useState(false);
+  const animatedHeight = useRef(new Animated.Value(0)).current;
+
+  console.log(width);
+
+  const imageHeight = width >= 720 ? 500 : 250; 
+
+  const navigation = useNavigation();
+
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 {/* slider  scrip*/} 
 
   const toggleDropdown = () => {
@@ -194,6 +219,7 @@ const HomeScreen = () => {
     };
 
 
+<<<<<<< HEAD
     const handleMainTabPress = (tab) => {
       setSelectedTab(tab);
       switch (tab) {
@@ -215,6 +241,25 @@ const HomeScreen = () => {
       }
     };
     
+=======
+  const handleMainTabPress = (tab) => {
+    setSelectedTab(tab);
+    switch (tab) {
+      case 'BMW':
+        setSubTabs(['3', '4', '5', '7', '8', 'X', 'Z']);
+        break;
+      case 'BMW M':
+        setSubTabs(['ALL BMW M']);
+        break;
+      case 'BMW i':
+        setSubTabs(['ALL BMW i']);
+        break;
+      default:
+        setSubTabs([]);
+        break;
+    }
+  };
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
   const fetchCarData = async (series = 'BMW') => {
   try {
@@ -277,6 +322,7 @@ const handleSubTabPress = (subTab) => {
   fetchCarData2(subTab);
 };
 
+<<<<<<< HEAD
   // Function to toggle favorite status of a car
   const toggleFavorite = async (car) => {
     try {
@@ -321,6 +367,8 @@ useEffect(() => {
 
 
 
+=======
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
 // Duplicate the first image at the end of the array for smooth looping
 
@@ -454,6 +502,7 @@ useEffect(() => {
         </View>
         {filteredCarData.length > 0 && (
             <ScrollView 
+<<<<<<< HEAD
               horizontal 
               showsHorizontalScrollIndicator={false} // Optional: Hides the scroll indicator
               contentContainerStyle={styles.horizontalScrollContainer} // Optional: Additional styles
@@ -484,6 +533,28 @@ useEffect(() => {
             </ScrollView>
           )}
 
+=======
+            horizontal 
+            showsHorizontalScrollIndicator={false} // Optional: Hides the scroll indicator
+            contentContainerStyle={styles.horizontalScrollContainer} // Optional: Additional styles
+          >
+          <View style={styles.carList}>
+            {filteredCarData.map(car => (
+              <View key={car.id} style={styles.carItem}>
+              <TouchableOpacity onPress={() => navigation.navigate(car.id)}
+                style={styles.carCard}
+                >
+                <Image source={{ uri: car.imgLink }} style={styles.carImage} />
+                <Text style={styles.carName}>{car.name}</Text>
+                <Text style={styles.carPrice}>{car.price}</Text>
+                <Text style={styles.carGasType}>Gas Type: {car.gasType}</Text>
+                </TouchableOpacity>
+              </View>
+            ))}
+          </View>
+          </ScrollView>
+        )}
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
 
 
@@ -491,12 +562,29 @@ useEffect(() => {
       {isOpen && (
         <Animated.View style={[styles.dropdown, { height: animatedHeight }]}>
           <TouchableOpacity onPress={() => navigation.navigate('DangKy')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+           <TouchableOpacity onPress={() => navigation.navigate('SeeAllCars')}  style={styles.dropdownItem}><Text>View all cars</Text></TouchableOpacity >
+ 
+            <TouchableOpacity onPress={() => navigation.navigate('showInfor')}  style={styles.dropdownItem}><Text>Drive Test</Text></TouchableOpacity >
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
   
             <TouchableOpacity onPress={() => navigation.navigate('DangKy')}  style={styles.dropdownItem}><Text>Drive Test</Text></TouchableOpacity >
   
             <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
   
+<<<<<<< HEAD
             <TouchableOpacity onPress={() => navigation.navigate('fv')}  style={styles.dropdownItem}><Text>fv</Text></TouchableOpacity >
+=======
+<<<<<<< HEAD
+=======
+         
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
         </Animated.View>
       )}
     </View>
@@ -986,8 +1074,17 @@ imageContainer1:{
 },
 imgs:{
   flex:1,
+<<<<<<< HEAD
   width:"100%",
   borderRadius:30,
+=======
+<<<<<<< HEAD
+  width:"100%",
+  borderRadius:30,
+=======
+  width:"100%"
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 },
 
 verticalBarCtn:{
@@ -1025,11 +1122,14 @@ carItem:{
 
   margin:20,
 },
+<<<<<<< HEAD
 heartIcon: {
   position: 'absolute',
   top: 10,
   right: 10,
 },
+=======
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 });
 
 export default HomeScreen;

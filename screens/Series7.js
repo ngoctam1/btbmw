@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 import React, { useRef, useState ,useEffect} from 'react';
+=======
+<<<<<<< HEAD
+import React, { useRef, useState ,useEffect} from 'react';
+=======
+import React, { useRef, useState } from 'react';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 import {
   View,
   Text,
@@ -10,6 +18,10 @@ import {
   TouchableOpacity,
   Animated,
   StatusBar,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
   Linking,ActivityIndicator,Button
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -17,6 +29,15 @@ import { FontAwesome } from '@expo/vector-icons';
 import { db } from "../friebaseConf";
 import { doc, getDoc } from "firebase/firestore";
 import { Picker } from '@react-native-picker/picker';
+<<<<<<< HEAD
+=======
+=======
+  Linking
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
 
 const Home = ({ navigation }) => {
@@ -26,6 +47,10 @@ const Home = ({ navigation }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const rotateAnim = useRef(new Animated.Value(0)).current;
   const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
   const [isOpen, setIsOpen] = useState(false);
   const animatedHeight = useRef(new Animated.Value(0)).current;
   const defaultCarName = "Seriesi7"; // Default car name
@@ -83,6 +108,15 @@ const Home = ({ navigation }) => {
   };
 
 
+<<<<<<< HEAD
+=======
+=======
+
+
+  const [isOpen, setIsOpen] = useState(false);
+  const animatedHeight = useRef(new Animated.Value(0)).current;
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
     const toggleDropdown = () => {
     if (isOpen) {
@@ -123,7 +157,17 @@ const Home = ({ navigation }) => {
  }
 
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+  const handleOptionPress = () => {
+    setModalVisible(true);
+  };
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
   const headerBackgroundColor = scrollY.interpolate({
     inputRange: [0, 150],
@@ -231,13 +275,25 @@ const Home = ({ navigation }) => {
         <Animated.View style={[styles.dropdown, { height: animatedHeight }]}>
           <TouchableOpacity onPress={() => navigation.navigate('DangKy')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
 
+<<<<<<< HEAD
           <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
+=======
+<<<<<<< HEAD
+          <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
+=======
+           <TouchableOpacity onPress={() => navigation.navigate('SeeAllCars')}  style={styles.dropdownItem}><Text>View all cars</Text></TouchableOpacity >
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
   
            <TouchableOpacity onPress={() => navigation.navigate('Home')}  style={styles.dropdownItem}><Text>Home</Text></TouchableOpacity >
          
         </Animated.View>
       )}
     </View>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
 
     <View style={styles.container1}>
@@ -334,6 +390,11 @@ const Home = ({ navigation }) => {
 
 
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
         
 
         <View style={styles.mainTextCNT}>
@@ -1047,6 +1108,10 @@ TextItem:{
   fontSize:16,
   fontWeight:'300',
 },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
 
 
@@ -1112,6 +1177,11 @@ column: {
   padding: 10,
 },
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 });
 
 export default Home;

@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 import React, { useRef, useState ,useEffect} from 'react';
+=======
+<<<<<<< HEAD
+import React, { useRef, useState ,useEffect} from 'react';
+=======
+import React, { useRef, useState } from 'react';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 import {
   View,
   Text,
@@ -10,6 +18,10 @@ import {
   TouchableOpacity,
   Animated,
   StatusBar,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
   Linking,ActivityIndicator,Button
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -17,6 +29,15 @@ import { FontAwesome } from '@expo/vector-icons';
 import { db } from "../friebaseConf";
 import { doc, getDoc } from "firebase/firestore";
 import { Picker } from '@react-native-picker/picker';
+<<<<<<< HEAD
+=======
+=======
+  Linking
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
 
 const home = ({ navigation  }) => {
@@ -24,6 +45,10 @@ const home = ({ navigation  }) => {
   
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
   const scrollY = useRef(new Animated.Value(0)).current;
   const [isMenuOpen, setMenuOpen] = useState(false);
   const rotateAnim = useRef(new Animated.Value(0)).current;
@@ -83,6 +108,23 @@ const home = ({ navigation  }) => {
 
 
 
+<<<<<<< HEAD
+=======
+=======
+
+  const scrollY = useRef(new Animated.Value(0)).current;
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  
+  const rotateAnim = useRef(new Animated.Value(0)).current;
+  const [isOpen, setIsOpen] = useState(false);
+
+
+
+  const animatedHeight = useRef(new Animated.Value(0)).current;
+
+  const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
   const handleOptionPress = () => {
     setModalVisible(true);
@@ -172,6 +214,10 @@ const hanldeLogoPress = ()=>{
 
         <View style={styles.optionsContainer}>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
           <View style={styles.verticalSeparator} />
 
           <TouchableOpacity onPress={handleOptionPress}>
@@ -181,12 +227,47 @@ const hanldeLogoPress = ()=>{
             />
             <Text style={isDarkTheme ? styles.darkText2 : styles.lightText2}>
               Menu
+<<<<<<< HEAD
+=======
+=======
+
+          <View style={styles.verticalSeparator} />
+
+          <TouchableOpacity onPress={() => alert('Call')}>
+            <Ionicons
+              style={styles.lightText2}
+              name="call" size={24} color="black"
+            />
+            <Text style={styles.lightText2}>
+              Call
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
             </Text>
           </TouchableOpacity>
         </View>
       </Animated.View>
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+      <View style={styles.separator} />
+
+              <View style={styles.dropdownCtn}>
+              {isOpen && (
+                <Animated.View style={[styles.dropdown, { height: animatedHeight }]}>
+                  <TouchableOpacity onPress={() => navigation.navigate('DangKy')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
+
+                  <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}  style={styles.dropdownItem}><Text>Home</Text></TouchableOpacity >
+        
+                
+                </Animated.View>
+              )}
+            </View>
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
       <Animated.ScrollView
         contentContainerStyle={styles.content}
@@ -242,6 +323,10 @@ const hanldeLogoPress = ()=>{
 
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
             <View style={styles.dropdownCtn}>
       {isOpen && (
@@ -349,6 +434,11 @@ const hanldeLogoPress = ()=>{
 
 
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
         <View style={styles.mainTextCNT}>
             <View style={styles.mainLeftCTN}>
             <Text style={styles.heading}>
@@ -938,6 +1028,10 @@ socialIconsCTN:{
   padding:20,
 },
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 container1: {
   marginVertical:20,
   flex: 1,
@@ -1000,6 +1094,11 @@ column: {
 
 
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
 
 });
