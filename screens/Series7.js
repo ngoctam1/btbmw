@@ -1,4 +1,12 @@
+<<<<<<< HEAD
+import React, { useRef, useState ,useEffect} from 'react';
+=======
+<<<<<<< HEAD
+import React, { useRef, useState ,useEffect} from 'react';
+=======
 import React, { useRef, useState } from 'react';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 import {
   View,
   Text,
@@ -10,10 +18,26 @@ import {
   TouchableOpacity,
   Animated,
   StatusBar,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
+  Linking,ActivityIndicator,Button
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import { db } from "../friebaseConf";
+import { doc, getDoc } from "firebase/firestore";
+import { Picker } from '@react-native-picker/picker';
+<<<<<<< HEAD
+=======
+=======
   Linking
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
 
 const Home = ({ navigation }) => {
@@ -23,10 +47,76 @@ const Home = ({ navigation }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const rotateAnim = useRef(new Animated.Value(0)).current;
   const toggleSwitch = () => setIsDarkTheme(previousState => !previousState);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
+  const [isOpen, setIsOpen] = useState(false);
+  const animatedHeight = useRef(new Animated.Value(0)).current;
+  const defaultCarName = "Seriesi7"; // Default car name
+  const [defaultData, setDefaultData] = useState(null); // Data for the default car
+  const [selectedCar, setSelectedCar] = useState(null); // Selected car name
+  const [selectedData, setSelectedData] = useState(null); // Data for the selected car
+  const [loading, setLoading] = useState(true);
+  const [modalVisible1, setModalVisible1] = useState(false); // Modal visibility
+
+
+
+
+  
+    // Fetch data for a specific car
+    const fetchCarData = async (carName, setDataCallback) => {
+      try {
+          const docRef = doc(db, "carDetails", carName);
+          const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists()) {
+              setDataCallback(docSnap.data());
+          } else {
+              console.log(`No data found for ${carName}`);
+              setDataCallback(null);
+          }
+      } catch (error) {
+          console.error(`Error fetching data for ${carName}:`, error);
+          setDataCallback(null);
+      }
+  };
+
+  // Fetch data for the default car on mount
+  useEffect(() => {
+      fetchCarData(defaultCarName, setDefaultData).finally(() => setLoading(false));
+  }, []);
+
+  // Handle car selection
+  const handleCarSelection = async (carName) => {
+      setSelectedCar(carName);
+      setLoading(true);
+      await fetchCarData(carName, setSelectedData);
+      setLoading(false);
+  };
+
+  if (loading) {
+      return (
+          <View style={styles.centered}>
+              <ActivityIndicator size="large" color="#0000ff" />
+              <Text>Loading data...</Text>
+          </View>
+      );
+  }
+  const handleOptionPress = () => {
+    setModalVisible(true);
+  };
+
+
+<<<<<<< HEAD
+=======
+=======
 
 
   const [isOpen, setIsOpen] = useState(false);
   const animatedHeight = useRef(new Animated.Value(0)).current;
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
     const toggleDropdown = () => {
     if (isOpen) {
@@ -67,9 +157,17 @@ const Home = ({ navigation }) => {
  }
 
 
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+=======
   const handleOptionPress = () => {
     setModalVisible(true);
   };
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
   const headerBackgroundColor = scrollY.interpolate({
     inputRange: [0, 150],
@@ -177,13 +275,126 @@ const Home = ({ navigation }) => {
         <Animated.View style={[styles.dropdown, { height: animatedHeight }]}>
           <TouchableOpacity onPress={() => navigation.navigate('DangKy')} style={styles.dropdownItem}><Text>Book A Test Drive</Text></TouchableOpacity >
 
+<<<<<<< HEAD
+          <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
+=======
+<<<<<<< HEAD
+          <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}  style={styles.dropdownItem}><Text>AI Support</Text></TouchableOpacity>
+=======
            <TouchableOpacity onPress={() => navigation.navigate('SeeAllCars')}  style={styles.dropdownItem}><Text>View all cars</Text></TouchableOpacity >
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
   
            <TouchableOpacity onPress={() => navigation.navigate('Home')}  style={styles.dropdownItem}><Text>Home</Text></TouchableOpacity >
          
         </Animated.View>
       )}
     </View>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
+
+
+    <View style={styles.container1}>
+            <Text style={styles.title}>Curent Car Details ({defaultCarName}):</Text>
+            {defaultData ? (
+                Object.entries(defaultData).map(([key, value]) => (
+                    <Text key={key} style={styles.text}>
+                        {key}: {value}
+                    </Text>
+                ))
+            ) : (
+                <Text>No data found for {defaultCarName}</Text>
+            )}
+
+            {/* "Compare With" Button */}
+            <TouchableOpacity
+                style={styles.compareButton}
+                onPress={() => setModalVisible1(true)}
+            >
+                <Text style={styles.buttonText}>Compare With</Text>
+            </TouchableOpacity>
+
+            {/* Modal for comparing cars */}
+            <Modal visible={modalVisible1} animationType="slide">
+                <View style={styles.modalContainer}>
+                    <Text style={styles.title}>Select a Car to Compare</Text>
+
+                    {/* Picker to choose another car */}
+                    <Picker
+                        selectedValue={selectedCar}
+                        onValueChange={(value) => handleCarSelection(value)}
+                        style={styles.picker}
+                    >
+                    <Picker.Item label="Series3" value="Series3" /> 
+                    <Picker.Item label="Series4C" value="Series4C" />
+                    <Picker.Item label="Series4GC" value="Series4GC" />
+                    <Picker.Item label="Series5" value="Series5" />
+                    <Picker.Item label="Series7" value="Series7" />
+                    <Picker.Item label="Series8GC" value="Series8GC" />
+                    <Picker.Item label="SeriesX3" value="SeriesX3" />
+                    <Picker.Item label="SeriesX4" value="SeriesX4" />
+                    <Picker.Item label="SeriesX5" value="SeriesX5" />
+                    <Picker.Item label="SeriesX6" value="SeriesX6" />
+                    <Picker.Item label="SeriesX7" value="SeriesX7" />
+                    <Picker.Item label="SeriesXM" value="SeriesXM" />
+                    <Picker.Item label="SeriesZ4" value="SeriesZ4" />
+                    <Picker.Item label="Seriesi4" value="Seriesi4" />
+                    <Picker.Item label="Seriesi7" value="Seriesi7" />
+                    <Picker.Item label="SeriesiX3" value="SeriesiX3" />
+                    <Picker.Item label="series3" value="series3" />
+
+                        
+                        {/* Add more cars as needed */}
+                    </Picker>
+
+                    {/* Comparison Details */}
+                    <View style={styles.row}>
+                        <View style={styles.column}>
+                            <Text style={styles.subtitle}>Default Car ({defaultCarName})</Text>
+                            {defaultData ? (
+                                Object.entries(defaultData).map(([key, value]) => (
+                                    <Text key={key} style={styles.text}>
+                                        {key}: {value}
+                                    </Text>
+                                ))
+                            ) : (
+                                <Text>No data found for {defaultCarName}</Text>
+                            )}
+                        </View>
+                        <View style={styles.column}>
+                            <Text style={styles.subtitle}>
+                                Selected Car ({selectedCar || "None"})
+                            </Text>
+                            {selectedData ? (
+                                Object.entries(selectedData).map(([key, value]) => (
+                                    <Text key={key} style={styles.text}>
+                                        {key}: {value}
+                                    </Text>
+                                ))
+                            ) : (
+                                <Text>No data found for {selectedCar}</Text>
+                            )}
+                        </View>
+                    </View>
+
+                    {/* Back Button */}
+                    <Button title="Back" onPress={() => setModalVisible1(false)} />
+                </View>
+            </Modal>
+        </View>
+
+
+
+
+
+
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
         
 
         <View style={styles.mainTextCNT}>
@@ -897,6 +1108,80 @@ TextItem:{
   fontSize:16,
   fontWeight:'300',
 },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
+
+
+
+
+
+container1: {
+  marginVertical:20,
+  flex: 1,
+  padding: 20,
+  backgroundColor: "#f9f9f9",
+  borderRadius:40,
+},
+centered: {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+},
+title: {
+  fontSize: 18,
+  fontWeight: "bold",
+  marginBottom: 10,
+},
+subtitle: {
+  fontSize: 16,
+  fontWeight: "bold",
+  marginBottom: 10,
+  textAlign: "center",
+},
+text: {
+  fontSize: 16,
+  marginVertical: 5,
+},
+picker: {
+  height: 50,
+  width: "100%",
+  marginTop: 20,
+  backgroundColor: "#e8e8e8",
+},
+compareButton: {
+  marginTop: 20,
+  padding: 10,
+  backgroundColor: "#4CAF50",
+  alignItems: "center",
+  borderRadius: 5,
+},
+buttonText: {
+  color: "#fff",
+  fontWeight: "bold",
+  fontSize: 16,
+},
+modalContainer: {
+  flex: 1,
+  padding: 20,
+  justifyContent: "center",
+  backgroundColor: "#fff",
+},
+row: {
+  flexDirection: "row",
+  justifyContent: "space-between",
+},
+column: {
+  flex: 1,
+  padding: 10,
+},
+
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 });
 
 export default Home;

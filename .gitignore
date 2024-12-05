@@ -7,6 +7,14 @@ node_modules/
 .expo/
 dist/
 web-build/
+<<<<<<< HEAD
+expo-env.d.ts
+=======
+<<<<<<< HEAD
+expo-env.d.ts
+=======
+>>>>>>> 15ffe86c1701d38e84a3734d0559786b811e275e
+>>>>>>> 14ca8de3f4e884cc599f92a2d2c347e54ba3e633
 
 # Native
 *.orig.*
